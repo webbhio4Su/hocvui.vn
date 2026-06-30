@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#fff8dc,#ffd54f,#ffb300,#f9a825,#fff176);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(255,255,255,.35);
+    filter:blur(100px);
+}
+
+body::before{
+    top:-120px;
+    left:-120px;
+}
+
+body::after{
+    bottom:-120px;
+    right:-120px;
+}
+
+.card{
+    position:relative;
+    z-index:1;
+    width:430px;
+    max-width:90%;
+    background:rgba(255,255,255,.28);
+    backdrop-filter:blur(18px);
+    border:2px solid rgba(255,255,255,.4);
+    border-radius:30px;
+    padding:35px;
+    text-align:center;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+.logo{
+    width:75px;
+    height:75px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(145deg,#fff9c4,#ffd54f,#ffca28);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+    box-shadow:0 8px 25px rgba(255,193,7,.45);
+}
+
+h1{
+    margin-top:18px;
+    color:#7a5200;
+    font-size:32px;
+}
+
+.subtitle{
+    color:#8d6e00;
+    margin-top:8px;
+    margin-bottom:25px;
+    font-size:15px;
+}
+
+.qr{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    background:white;
+    padding:20px;
+    border-radius:24px;
+    border:5px solid #ffd54f;
+    box-shadow:
+        0 15px 35px rgba(255,193,7,.35);
+    transition:.35s;
+}
+
+.qr:hover{
+    transform:scale(1.05);
+    box-shadow:
+        0 0 25px #ffd54f,
+        0 0 60px rgba(255,215,0,.5);
+}
+
+.qr img{
+    width:270px;
+    display:block;
+}
+
+.footer{
+    margin-top:25px;
+    color:#6d4c00;
+    font-size:13px;
+}
+
+.shine{
+    position:absolute;
+    inset:0;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.shine::before{
+    content:"";
+    position:absolute;
+    top:-100%;
+    left:-60%;
+    width:45%;
+    height:300%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.6),
+        transparent
+    );
+    transform:rotate(25deg);
+    animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+    to{
+        left:140%;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<div class="shine"></div>
+
+<div class="logo">👑</div>
+
+<h1>QR Code</h1>
+
+<div class="subtitle">
+Quét mã QR để tiếp tục
+</div>
+
+<div class="qr">
+    <img src="qrcode.svg" alt="QR Code">
+</div>
+
+<div class="footer">
+✨ Golden Premium QR ✨
+</div>
+
+</div>
+
+</body>
+</html>
