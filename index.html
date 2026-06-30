@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff8e1, #ffe6b3);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HỘP LOADING */
+.loading-box {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 320px;
+  animation: popIn 0.6s ease-out;
+}
+
+/* ICON BLOB */
+.icon {
+  width: 120px;
+  height: 120px;
+  background: #fbbc04;
+  border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
+  position: relative;
+  animation: float 1.8s infinite ease-in-out;
+  box-shadow: 0 15px 35px rgba(251, 188, 4, 0.3);
+  margin: 0 auto 20px;
+}
+
+/* TAM GIÁC SIÊU MỀM */
+.icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 42px solid #ffffff;
+  border-top: 26px solid transparent;
+  border-bottom: 26px solid transparent;
+  filter: drop-shadow(4px 5px 8px rgba(0,0,0,0.3));
+}
+
+/* Lớp overlay tạo độ mềm mại */
+.icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 39px solid rgba(255,255,255,0.28);
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  z-index: 2;
+}
+
+.text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #d36b00;
+  margin-bottom: 10px;
+}
+.text::after {
+  content: ' .';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+.grok-logo {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(4deg); }
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes dots {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+  100% { content: '....'; }
+}
+</style>
+</head>
+<body>
+<div class="loading-box">
+  <div class="icon"></div>
+  <div class="text">Đang kết nối</div>
+</div>
+<div class="grok-logo">
+  <span>Powered by</span> <strong>Grok</strong>
+</div>
+
+<script>
+setTimeout(() => {
+  window.location.replace("https://ais-pre-bie63uidjosznlf7wdsabw-596641230131.asia-southeast1.run.app/");
+}, 3000);
+</script>
+</body>
+</html>
